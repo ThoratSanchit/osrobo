@@ -58,6 +58,13 @@ const HomePage = () => {
                 })()}
                 <span>PC Diagnostic</span>
               </div>
+              <div className="floating-card card-4">
+                {(() => {
+                  const IconComponent = getIconComponent('Wrench')
+                  return <IconComponent size={32} />
+                })()}
+                <span>Computer Services</span>
+              </div>
             </div>
           </div>
         </div>

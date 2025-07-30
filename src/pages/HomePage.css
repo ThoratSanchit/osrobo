@@ -64,35 +64,72 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-2);
-  padding: var(--spacing-4);
+  gap: var(--spacing-3);
+  padding: var(--spacing-6);
   background: var(--white);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
   animation: float 6s ease-in-out infinite;
+  width: 140px;
+  height: 120px;
+  border: 1px solid var(--gray-200);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.floating-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-blue);
 }
 
 .floating-card.card-1 {
-  top: 20%;
-  left: 10%;
+  top: 15%;
+  left: 15%;
   animation-delay: 0s;
 }
 
 .floating-card.card-2 {
-  top: 50%;
-  right: 20%;
-  animation-delay: 2s;
+  top: 15%;
+  right: 15%;
+  animation-delay: 1.5s;
 }
 
 .floating-card.card-3 {
-  bottom: 20%;
-  left: 30%;
-  animation-delay: 4s;
+  bottom: 15%;
+  left: 15%;
+  animation-delay: 3s;
+}
+
+.floating-card.card-4 {
+  bottom: 15%;
+  right: 15%;
+  animation-delay: 4.5s;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-15px) rotate(1deg); 
+  }
+  50% { 
+    transform: translateY(-25px) rotate(0deg); 
+  }
+  75% { 
+    transform: translateY(-15px) rotate(-1deg); 
+  }
+}
+
+.floating-card span {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--gray-900);
+  text-align: center;
+  line-height: 1.2;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 .featured-tools {
@@ -255,5 +292,36 @@
   
   .tools-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .floating-card {
+    padding: var(--spacing-4);
+    width: 110px;
+    height: 100px;
+  }
+  
+  .floating-card span {
+    font-size: var(--font-size-xs);
+    line-height: 1.1;
+  }
+  
+  .floating-card.card-1 {
+    top: 15%;
+    left: 15%;
+  }
+  
+  .floating-card.card-2 {
+    top: 15%;
+    right: 15%;
+  }
+  
+  .floating-card.card-3 {
+    bottom: 15%;
+    left: 15%;
+  }
+  
+  .floating-card.card-4 {
+    bottom: 15%;
+    right: 15%;
   }
 } 
