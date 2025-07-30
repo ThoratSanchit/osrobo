@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Download, Shield, Battery, Monitor, Star, FileText, Image, BarChart3, History } from 'lucide-react'
+import './DownloadsPage.css'
 
 const DownloadsPage = () => {
   const [activeTab, setActiveTab] = useState('overview')

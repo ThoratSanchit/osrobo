@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Download, Shield, Battery, Monitor, ArrowRight, Star } from 'lucide-react'
+import './HomePage.css'
 
 const HomePage = () => {
   const featuredTools = [

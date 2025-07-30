@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown, Download } from 'lucide-react'
+import './Header.css'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -37,8 +38,8 @@ const Header = () => {
               <ul className={`dropdown-menu ${isProductsOpen ? 'show' : ''}`}>
                 <li><Link to="/downloads" className="dropdown-link">Free Downloads</Link></li>
                 <li><Link to="/buy" className="dropdown-link">Premium Tools</Link></li>
-                <li><Link to="/downloads" className="dropdown-link">Internet Blocker</Link></li>
-                <li><Link to="/downloads" className="dropdown-link">Battery Tester</Link></li>
+                <li><Link to="/internet-blocker" className="dropdown-link">Internet Blocker</Link></li>
+                <li><Link to="/battery-tester" className="dropdown-link">Battery Tester</Link></li>
                 <li><Link to="/downloads" className="dropdown-link">PC Diagnostic</Link></li>
               </ul>
             </li>
