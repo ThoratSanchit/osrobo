@@ -53,9 +53,14 @@ const Header = () => {
                 <ChevronDown className="chevron" />
               </button>
               <ul className={`dropdown-menu ${isServicesOpen ? 'show' : ''}`}>
-                <li><Link to="/contact" className="dropdown-link">Technical Support</Link></li>
-                <li><Link to="/contact" className="dropdown-link">Custom Development</Link></li>
-                <li><Link to="/contact" className="dropdown-link">Consulting</Link></li>
+                <li><Link to="/data-recovery" className="dropdown-link">Data Recovery</Link></li>
+                <li><Link to="/remote-installation" className="dropdown-link">Remote-Online Installation</Link></li>
+                <li><Link to="/antivirus" className="dropdown-link">Antivirus</Link></li>
+                <li><Link to="/computers" className="dropdown-link">Computers</Link></li>
+                <li><Link to="/laptops" className="dropdown-link">Laptops</Link></li>
+                <li><Link to="/monitors" className="dropdown-link">Monitors</Link></li>
+                <li><Link to="/printers" className="dropdown-link">Printers</Link></li>
+                <li><Link to="/repair-services" className="dropdown-link">Repair Services</Link></li>
               </ul>
             </li>
 
