@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Battery, Download, Star, Check } from 'lucide-react'
-import './BatteryTesterPage.css'
+import './CommonPage.css'
+import './ProductPage.css'
 
 const BatteryTesterPage = () => {
   const [activeTab, setActiveTab] = useState('overview')
@@ -87,9 +88,42 @@ const BatteryTesterPage = () => {
                   <div className="tab-panel">
                     <h3>Screenshots</h3>
                     <div className="screenshots-grid">
-                      <div className="screenshot-placeholder">Battery Health</div>
-                      <div className="screenshot-placeholder">Performance Monitor</div>
-                      <div className="screenshot-placeholder">Calibration Tool</div>
+                      <div className="screenshot-item">
+                        <img 
+                          src="https://images.unsplash.com/photo-1609592806598-04c4d7e5c1e8?w=800&h=600&fit=crop&crop=center" 
+                          alt="Battery Health Analysis"
+                          className="screenshot-image"
+                          loading="lazy"
+                        />
+                        <div className="screenshot-overlay">
+                          <h4>Battery Health</h4>
+                          <p>Comprehensive battery health analysis and status overview</p>
+                        </div>
+                      </div>
+                      <div className="screenshot-item">
+                        <img 
+                          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center" 
+                          alt="Battery Performance Monitor"
+                          className="screenshot-image"
+                          loading="lazy"
+                        />
+                        <div className="screenshot-overlay">
+                          <h4>Performance Monitor</h4>
+                          <p>Real-time battery performance monitoring and statistics</p>
+                        </div>
+                      </div>
+                      <div className="screenshot-item">
+                        <img 
+                          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop&crop=center" 
+                          alt="Battery Calibration Tool"
+                          className="screenshot-image"
+                          loading="lazy"
+                        />
+                        <div className="screenshot-overlay">
+                          <h4>Calibration Tool</h4>
+                          <p>Advanced battery calibration and optimization tools</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}

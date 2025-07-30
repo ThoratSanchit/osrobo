@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import { Download, ArrowRight, Star } from 'lucide-react'
-import { featuredToolsData } from '../api/featuredToolsData'
+import { getFeaturedTools } from '../api/toolsData'
 import { getIconComponent } from '../api/iconHelper'
+import './CommonPage.css'
 import './HomePage.css'
 
 const HomePage = () => {
-  const featuredTools = featuredToolsData
+  const featuredTools = getFeaturedTools()
 
   return (
     <div className="home-page">

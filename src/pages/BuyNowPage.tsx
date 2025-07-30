@@ -1,9 +1,9 @@
-import { useState } from 'react'
 import { Shield, Battery, Monitor, Star, Crown, Check, Clock, Zap } from 'lucide-react'
+import './CommonPage.css'
 import './BuyNowPage.css'
 
 const BuyNowPage = () => {
-  const [selectedPlan, setSelectedPlan] = useState<string | null>(null)
+
 
   const premiumTools = [
     {

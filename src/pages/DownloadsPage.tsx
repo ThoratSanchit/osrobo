@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { Download, Star, FileText, Image, BarChart3, History } from 'lucide-react'
-import { toolsData, getToolById } from '../api/toolsData'
-import type { Tool } from '../api/toolsData'
+import { toolsData } from '../api/toolsData'
 import { getIconComponent } from '../api/iconHelper'
+import './CommonPage.css'
 import './DownloadsPage.css'
+import './ProductPage.css'
 
 const DownloadsPage = () => {
   const [activeTab, setActiveTab] = useState('overview')
@@ -160,10 +161,18 @@ const DownloadsPage = () => {
                   <div className="tab-panel">
                     <h3>Screenshots</h3>
                     <div className="screenshots-grid">
-                      {currentTool.screenshots.map((screenshot, index) => (
-                        <div key={index} className="screenshot-placeholder">
-                          <Image size={48} />
-                          <span>{screenshot}</span>
+                      {currentTool.screenshots.map((screenshot) => (
+                        <div key={screenshot.id} className="screenshot-item">
+                          <img 
+                            src={screenshot.url} 
+                            alt={screenshot.alt}
+                            className="screenshot-image"
+                            loading="lazy"
+                          />
+                          <div className="screenshot-overlay">
+                            <h4>{screenshot.title}</h4>
+                            <p>{screenshot.description}</p>
+                          </div>
                         </div>
                       ))}
                     </div>

@@ -135,19 +135,57 @@
 
 .screenshots-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-4);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-6);
 }
 
-.screenshot-placeholder {
-  aspect-ratio: 16/9;
-  background: var(--gray-100);
+.screenshot-item {
+  position: relative;
   border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gray-500);
-  font-weight: 500;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.screenshot-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.screenshot-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.screenshot-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: var(--white);
+  padding: var(--spacing-4);
+  transform: translateY(100%);
+  transition: transform var(--transition-normal);
+}
+
+.screenshot-item:hover .screenshot-overlay {
+  transform: translateY(0);
+}
+
+.screenshot-overlay h4 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--spacing-1);
+}
+
+.screenshot-overlay p {
+  font-size: var(--font-size-sm);
+  opacity: 0.9;
+  line-height: 1.4;
 }
 
 .comparison-table {

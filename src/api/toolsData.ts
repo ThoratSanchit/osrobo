@@ -11,7 +11,13 @@ export interface Tool {
   features: string[];
   overview: string;
   changelog: ChangelogEntry[];
-  screenshots: string[];
+  screenshots: {
+    id: string;
+    title: string;
+    description: string;
+    url: string;
+    alt: string;
+  }[];
   pricing: {
     demo: string;
     single: string;
@@ -68,9 +74,27 @@ export const toolsData: Tool[] = [
       }
     ],
     screenshots: [
-      'Main Interface',
-      'Settings Panel',
-      'Scheduling'
+      {
+        id: 'ib-main',
+        title: 'Main Interface',
+        description: 'Clean and intuitive main dashboard with website blocking controls',
+        url: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop&crop=center',
+        alt: 'Internet Blocker Main Interface'
+      },
+      {
+        id: 'ib-settings',
+        title: 'Settings Panel',
+        description: 'Advanced configuration options and scheduling settings',
+        url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center',
+        alt: 'Internet Blocker Settings Panel'
+      },
+      {
+        id: 'ib-schedule',
+        title: 'Scheduling',
+        description: 'Time-based blocking and productivity scheduling interface',
+        url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop&crop=center',
+        alt: 'Internet Blocker Scheduling Interface'
+      }
     ],
     pricing: {
       demo: 'Free',
@@ -120,9 +144,27 @@ export const toolsData: Tool[] = [
       }
     ],
     screenshots: [
-      'Battery Health',
-      'Performance Monitor',
-      'Calibration Tool'
+      {
+        id: 'bt-health',
+        title: 'Battery Health',
+        description: 'Comprehensive battery health analysis and status overview',
+        url: 'https://images.unsplash.com/photo-1609592806598-04c4d7e5c1e8?w=800&h=600&fit=crop&crop=center',
+        alt: 'Battery Health Analysis'
+      },
+      {
+        id: 'bt-monitor',
+        title: 'Performance Monitor',
+        description: 'Real-time battery performance monitoring and statistics',
+        url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center',
+        alt: 'Battery Performance Monitor'
+      },
+      {
+        id: 'bt-calibration',
+        title: 'Calibration Tool',
+        description: 'Advanced battery calibration and optimization tools',
+        url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop&crop=center',
+        alt: 'Battery Calibration Tool'
+      }
     ],
     pricing: {
       demo: 'Free',
@@ -172,9 +214,27 @@ export const toolsData: Tool[] = [
       }
     ],
     screenshots: [
-      'System Overview',
-      'Hardware Diagnostics',
-      'Performance Monitor'
+      {
+        id: 'pd-overview',
+        title: 'System Overview',
+        description: 'Complete system health overview and performance metrics',
+        url: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop&crop=center',
+        alt: 'PC Diagnostic System Overview'
+      },
+      {
+        id: 'pd-hardware',
+        title: 'Hardware Diagnostics',
+        description: 'Detailed hardware analysis and component health check',
+        url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center',
+        alt: 'PC Diagnostic Hardware Analysis'
+      },
+      {
+        id: 'pd-performance',
+        title: 'Performance Monitor',
+        description: 'Real-time system performance monitoring and optimization',
+        url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop&crop=center',
+        alt: 'PC Diagnostic Performance Monitor'
+      }
     ],
     pricing: {
       demo: 'Free',
@@ -194,4 +254,8 @@ export const getAllTools = (): Tool[] => {
 
 export const getToolsByCategory = (category: string): Tool[] => {
   return toolsData.filter(tool => tool.category === category);
+};
+
+export const getFeaturedTools = (): Tool[] => {
+  return toolsData.filter(tool => ['internet-blocker', 'battery-tester', 'pc-diagnostic'].includes(tool.id));
 }; 

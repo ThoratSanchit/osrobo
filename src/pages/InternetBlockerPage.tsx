@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Shield, Download, Star, Check } from 'lucide-react'
-import './InternetBlockerPage.css'
+import './CommonPage.css'
+import './ProductPage.css'
 
 const InternetBlockerPage = () => {
   const [activeTab, setActiveTab] = useState('overview')
@@ -87,9 +88,42 @@ const InternetBlockerPage = () => {
                   <div className="tab-panel">
                     <h3>Screenshots</h3>
                     <div className="screenshots-grid">
-                      <div className="screenshot-placeholder">Main Interface</div>
-                      <div className="screenshot-placeholder">Settings Panel</div>
-                      <div className="screenshot-placeholder">Scheduling</div>
+                      <div className="screenshot-item">
+                        <img 
+                          src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop&crop=center" 
+                          alt="Internet Blocker Main Interface"
+                          className="screenshot-image"
+                          loading="lazy"
+                        />
+                        <div className="screenshot-overlay">
+                          <h4>Main Interface</h4>
+                          <p>Clean and intuitive main dashboard with website blocking controls</p>
+                        </div>
+                      </div>
+                      <div className="screenshot-item">
+                        <img 
+                          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center" 
+                          alt="Internet Blocker Settings Panel"
+                          className="screenshot-image"
+                          loading="lazy"
+                        />
+                        <div className="screenshot-overlay">
+                          <h4>Settings Panel</h4>
+                          <p>Advanced configuration options and scheduling settings</p>
+                        </div>
+                      </div>
+                      <div className="screenshot-item">
+                        <img 
+                          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop&crop=center" 
+                          alt="Internet Blocker Scheduling Interface"
+                          className="screenshot-image"
+                          loading="lazy"
+                        />
+                        <div className="screenshot-overlay">
+                          <h4>Scheduling</h4>
+                          <p>Time-based blocking and productivity scheduling interface</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
