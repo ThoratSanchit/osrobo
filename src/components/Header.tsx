@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown, Download } from 'lucide-react'
 import './Header.css'
@@ -9,6 +9,35 @@ const Header = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const location = useLocation()
 
+  // Refs for dropdowns
+  const productsRef = useRef<HTMLLIElement>(null)
+  const servicesRef = useRef<HTMLLIElement>(null)
+
+  // Close dropdowns on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        productsRef.current &&
+        !productsRef.current.contains(event.target as Node) &&
+        isProductsOpen
+      ) {
+        setIsProductsOpen(false)
+      }
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(event.target as Node) &&
+        isServicesOpen
+      ) {
+        setIsServicesOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isProductsOpen, isServicesOpen])
+
+  // Helper for active link
   const isActive = (path: string) => location.pathname === path
 
   return (
@@ -27,10 +56,15 @@ const Header = () => {
               </Link>
             </li>
             
-            <li className="nav-item dropdown">
-              <button 
+            <li
+              className="nav-item dropdown"
+              ref={productsRef}
+              onMouseLeave={() => setIsProductsOpen(false)}
+            >
+              <button
                 className={`nav-link dropdown-toggle ${isProductsOpen ? 'active' : ''}`}
-                onClick={() => setIsProductsOpen(!isProductsOpen)}
+                onClick={() => setIsProductsOpen((open) => !open)}
+                onMouseEnter={() => setIsProductsOpen(true)}
               >
                 Products
                 <ChevronDown className="chevron" />
@@ -44,10 +78,15 @@ const Header = () => {
               </ul>
             </li>
 
-            <li className="nav-item dropdown">
-              <button 
+            <li
+              className="nav-item dropdown"
+              ref={servicesRef}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              <button
                 className={`nav-link dropdown-toggle ${isServicesOpen ? 'active' : ''}`}
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                onClick={() => setIsServicesOpen((open) => !open)}
+                onMouseEnter={() => setIsServicesOpen(true)}
               >
                 Services
                 <ChevronDown className="chevron" />
@@ -78,7 +117,7 @@ const Header = () => {
             Free Download
           </Link>
           
-          <button 
+          <button
             className="mobile-menu-btn"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
