@@ -1,95 +1,15 @@
 import { useState } from 'react'
-import { Download, Shield, Battery, Monitor, Star, FileText, Image, BarChart3, History } from 'lucide-react'
+import { Download, Star, FileText, Image, BarChart3, History } from 'lucide-react'
+import { toolsData, getToolById } from '../api/toolsData'
+import type { Tool } from '../api/toolsData'
+import { getIconComponent } from '../api/iconHelper'
 import './DownloadsPage.css'
 
 const DownloadsPage = () => {
   const [activeTab, setActiveTab] = useState('overview')
-  const [selectedTool, setSelectedTool] = useState(1)
+  const [selectedTool, setSelectedTool] = useState('internet-blocker')
 
-  const tools = [
-    {
-      id: 1,
-      name: 'Internet Blocker Pro',
-      description: 'Advanced website blocking and productivity tool with scheduling features.',
-      icon: Shield,
-      version: '2.1.0',
-      size: '15.2 MB',
-      rating: 4.8,
-      downloads: '50K+',
-      features: [
-        'Website blocking with wildcard support',
-        'Time-based scheduling',
-        'Password protection',
-        'Whitelist management',
-        'Real-time monitoring',
-        'Export/Import settings'
-      ],
-      screenshots: [
-        '/screenshots/blocker-1.png',
-        '/screenshots/blocker-2.png',
-        '/screenshots/blocker-3.png'
-      ],
-      changelog: [
-        { version: '2.1.0', date: '2024-01-15', changes: ['Added dark mode', 'Improved performance', 'Bug fixes'] },
-        { version: '2.0.5', date: '2023-12-20', changes: ['Security updates', 'UI improvements'] },
-        { version: '2.0.0', date: '2023-11-10', changes: ['Major UI redesign', 'New scheduling features'] }
-      ]
-    },
-    {
-      id: 2,
-      name: 'Battery Tester Plus',
-      description: 'Comprehensive battery health analysis and optimization software.',
-      icon: Battery,
-      version: '1.8.2',
-      size: '8.7 MB',
-      rating: 4.9,
-      downloads: '35K+',
-      features: [
-        'Battery health analysis',
-        'Performance optimization',
-        'Real-time monitoring',
-        'Battery calibration',
-        'Power consumption tracking',
-        'Detailed reports'
-      ],
-      screenshots: [
-        '/screenshots/battery-1.png',
-        '/screenshots/battery-2.png',
-        '/screenshots/battery-3.png'
-      ],
-      changelog: [
-        { version: '1.8.2', date: '2024-01-10', changes: ['Enhanced accuracy', 'New battery types support'] },
-        { version: '1.8.0', date: '2023-12-15', changes: ['Added calibration tools', 'Improved UI'] }
-      ]
-    },
-    {
-      id: 3,
-      name: 'PC Diagnostic Suite',
-      description: 'Complete system diagnostics and performance optimization toolkit.',
-      icon: Monitor,
-      version: '3.2.1',
-      size: '22.1 MB',
-      rating: 4.7,
-      downloads: '75K+',
-      features: [
-        'System performance analysis',
-        'Hardware monitoring',
-        'Driver management',
-        'Registry optimization',
-        'Disk health check',
-        'Network diagnostics'
-      ],
-      screenshots: [
-        '/screenshots/diagnostic-1.png',
-        '/screenshots/diagnostic-2.png',
-        '/screenshots/diagnostic-3.png'
-      ],
-      changelog: [
-        { version: '3.2.1', date: '2024-01-20', changes: ['New hardware detection', 'Performance improvements'] },
-        { version: '3.2.0', date: '2024-01-05', changes: ['Added network diagnostics', 'Enhanced reporting'] }
-      ]
-    }
-  ]
+  const tools = toolsData
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: FileText },
@@ -100,7 +20,7 @@ const DownloadsPage = () => {
 
   const currentTool = tools.find(tool => tool.id === selectedTool) || tools[0]
 
-  const handleDownload = (toolId: number) => {
+  const handleDownload = (toolId: string) => {
     // Simulate download
     console.log(`Downloading tool ${toolId}`)
     // In a real app, this would trigger the actual download
@@ -126,7 +46,10 @@ const DownloadsPage = () => {
                 onClick={() => setSelectedTool(tool.id)}
               >
                 <div className="tool-item-icon">
-                  <tool.icon size={32} />
+                  {(() => {
+                    const IconComponent = getIconComponent(tool.icon)
+                    return <IconComponent size={32} />
+                  })()}
                 </div>
                 <div className="tool-item-info">
                   <h3 className="tool-item-name">{tool.name}</h3>
@@ -149,7 +72,10 @@ const DownloadsPage = () => {
             <div className="tool-header">
               <div className="tool-header-info">
                 <div className="tool-header-icon">
-                  <currentTool.icon size={48} />
+                  {(() => {
+                    const IconComponent = getIconComponent(currentTool.icon)
+                    return <IconComponent size={48} />
+                  })()}
                 </div>
                 <div className="tool-header-text">
                   <h2 className="tool-title">{currentTool.name}</h2>
@@ -157,7 +83,7 @@ const DownloadsPage = () => {
                   <div className="tool-stats">
                     <span className="stat">
                       <Download size={16} />
-                      {currentTool.downloads} downloads
+                      {currentTool.downloads.toLocaleString()} downloads
                     </span>
                     <span className="stat">
                       <Star size={16} className="star-filled" />
@@ -206,7 +132,7 @@ const DownloadsPage = () => {
                       </div>
                       <div className="stat-card">
                         <h4>Downloads</h4>
-                        <p>{currentTool.downloads}</p>
+                        <p>{currentTool.downloads.toLocaleString()}</p>
                       </div>
                       <div className="stat-card">
                         <h4>Rating</h4>
@@ -237,7 +163,7 @@ const DownloadsPage = () => {
                       {currentTool.screenshots.map((screenshot, index) => (
                         <div key={index} className="screenshot-placeholder">
                           <Image size={48} />
-                          <span>Screenshot {index + 1}</span>
+                          <span>{screenshot}</span>
                         </div>
                       ))}
                     </div>
