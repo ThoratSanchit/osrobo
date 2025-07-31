@@ -6,6 +6,72 @@
 
 /* Common page styles imported from CommonPage.css */
 
+@media (max-width: 768px) {
+  .buy-now-page {
+    padding: var(--spacing-8) 0;
+  }
+
+  .page-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .page-subtitle {
+    font-size: var(--font-size-md);
+  }
+
+  .banner-content {
+    flex-direction: column;
+    gap: var(--spacing-4);
+    text-align: center;
+  }
+
+  .premium-tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .premium-tool-card {
+    padding: var(--spacing-4);
+  }
+
+  .tool-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-3);
+  }
+
+  .tool-pricing {
+    padding: var(--spacing-3);
+  }
+
+  .price-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tool-actions {
+    gap: var(--spacing-2);
+  }
+
+  .btn-large {
+    padding: var(--spacing-2) var(--spacing-4);
+    font-size: var(--font-size-sm);
+  }
+
+  .comparison-table {
+    font-size: var(--font-size-sm);
+    overflow-x: auto;
+  }
+
+  .table-cell {
+    padding: var(--spacing-2);
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .pricing-banner {
   background: var(--gradient-primary);
   border-radius: var(--radius-2xl);
@@ -261,4 +327,4 @@
   .table-row {
     grid-template-columns: 1fr 1fr 1fr;
   }
-} 
+}

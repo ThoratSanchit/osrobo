@@ -283,6 +283,7 @@
 @media (max-width: 1024px) {
   .downloads-layout {
     grid-template-columns: 1fr;
+    gap: var(--spacing-6);
   }
   
   .tools-list {
@@ -292,20 +293,67 @@
   .tool-details {
     order: 1;
   }
+
+  .tool-item {
+    padding: var(--spacing-3);
+  }
 }
 
 @media (max-width: 768px) {
+  .downloads-page {
+    padding: var(--spacing-8) 0;
+  }
+
+  .page-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .page-subtitle {
+    font-size: var(--font-size-md);
+  }
+
   .tool-header {
     flex-direction: column;
     gap: var(--spacing-4);
+    padding-bottom: var(--spacing-4);
   }
   
   .tool-header-info {
     flex-direction: column;
     text-align: center;
+    align-items: center;
+  }
+
+  .tool-header-icon {
+    width: 72px;
+    height: 72px;
+  }
+  
+  .tool-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .tool-subtitle {
+    font-size: var(--font-size-md);
   }
   
   .tab-nav {
     flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-2);
   }
-} 
+
+  .tab-button {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: var(--font-size-sm);
+  }
+
+  .overview-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .btn-large {
+    padding: var(--spacing-2) var(--spacing-4);
+    font-size: var(--font-size-sm);
+  }
+}

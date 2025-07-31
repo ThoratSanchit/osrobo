@@ -294,17 +294,56 @@
   .product-header {
     flex-direction: column;
     text-align: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4);
   }
   
   .product-icon {
     align-self: center;
+    width: 80px;
+    height: 80px;
+  }
+
+  .product-details h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .product-details p {
+    font-size: var(--font-size-md);
   }
   
   .tab-nav {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-2);
+  }
+
+  .tab-button {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: var(--font-size-sm);
   }
   
   .pricing-cards {
     grid-template-columns: 1fr;
   }
-} 
+
+  .screenshots-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-table {
+    font-size: var(--font-size-sm);
+    overflow-x: auto;
+  }
+
+  .table-header > div,
+  .table-row > div {
+    padding: var(--spacing-2);
+  }
+
+  .btn-large {
+    padding: var(--spacing-2) var(--spacing-4);
+    font-size: var(--font-size-sm);
+  }
+}
